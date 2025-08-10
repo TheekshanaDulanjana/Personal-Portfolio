@@ -15,9 +15,7 @@
     font-family: 'Poppins', sans-serif;
   }
 
-  /* Custom CSS Variables */
   :root {
-    --RandulaBlue: #1b1464;
     --GlowGreen: #39FF14;
   }
 
@@ -67,13 +65,11 @@
     opacity: 0.8;
   }
 
-  /* Glow effect utility class */
   .glow-green {
     color: var(--GlowGreen);
     text-shadow: 0 0 5px var(--GlowGreen), 0 0 10px var(--GlowGreen), 0 0 20px var(--GlowGreen);
   }
 
-  /* Optional glowing border */
   .border-glow {
     border: 1px solid var(--GlowGreen);
     box-shadow: 0 0 10px var(--GlowGreen);

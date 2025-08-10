@@ -17,7 +17,7 @@ export default function HeroSection() {
     <div className="min-h-screen bg-transparent text-white flex flex-col items-center justify-center relative overflow-hidden px-4 sm:px-6 md:px-10 font-poppins">
       
       {/* Headline */}
-      <h1 className="text-4xl sm:text-5xl lg:text-6xl font-semibold text-center z-10 mt-10 text-[#59ff89] leading-snug sm:leading-tight">
+      <h1 className="text-4xl sm:text-5xl leading-10 lg:text-6xl font-semibold text-center z-10 mt-10 text-[#59ff89]  sm:leading-tight">
         Hey there!
         <br />
         <span className="text-white">I'm Theekshana Dulanjana</span>
@@ -25,8 +25,8 @@ export default function HeroSection() {
 
       {/* Subtext */}
       <p className="text-gray-400 text-center mt-4 max-w-lg sm:max-w-xl lg:max-w-2xl z-10 text-base sm:text-lg">
-        Crafting Ideas into Digital Realities. A passionate full-stack developer
-        & creative mind building sleek, scalable, and smart solutions.
+        Blending Code and Creativity <br />
+        Crafting intuitive designs and impactful digital experiences.
       </p>
 
       {/* Buttons */}

@@ -1,5 +1,6 @@
 import React, { useState, useEffect, useRef } from 'react';
 import { useNavigate, useLocation } from 'react-router-dom';
+import logo from '../assets/logo.png';
 
 const NAV_ITEMS = [
   { path: '/', label: 'Home', sectionId: 'home' },
@@ -55,8 +56,11 @@ export default function Header() {
       <div className="px-4 py-3 rounded-2xl bg-black/40 backdrop-blur-md shadow-lg border border-white/10">
         <div className="flex justify-between items-center">
           {/* Logo / Branding */}
-          <div className="text-white font-bold hover:text-[#59ff89] text-lg tracking-wide cursor-pointer select-none">
-            Theekshana Dulanjana
+          <div
+            className="text-white font-bold hover:text-[#59ff89] text-lg tracking-wide cursor-pointer select-none"
+            onClick={() => scrollToSection('home')}
+          >
+            <img src={logo} alt="Logo" className="w-8 h-8" />
           </div>
 
           {/* Desktop Navigation */}
@@ -98,13 +102,14 @@ export default function Header() {
 const NavButton = ({ label, onClick, mobile }) => (
   <button
     onClick={onClick}
-    className={`px-4 py-2 font-medium font-poppins transition-all duration-200 rounded-lg 
+    className={`px-4 py-2 font-medium font-poppins transition-all duration-200 rounded-lg cursor-pointer
       ${mobile ? 'w-full text-left text-white hover:bg-white/10' : 'text-white hover:text-[#59ff89] hover:scale-110'}
     `}
   >
     {label}
   </button>
 );
+
 
 const MobileMenuButton = ({ isOpen, onClick }) => (
   <button
