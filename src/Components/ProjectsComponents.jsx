@@ -44,7 +44,7 @@ const images = [
   { 
     title: 'UniBoard.lk | Boarding Finding System', 
     imageUrl: uniboard, 
-    github: 'https://github.com/',
+    github: 'https://github.com/TheekshanaDulanjana/Uniboard.lk-Boarding-Finding-System-Student-Side',
     liveSite: null,
     technologies: [ <FaNodeJs />, <FaReact />, <SiTailwindcss />, <SiExpress />, <SiFirebase />, <SiMongodb />, <SiRedux />]
   },
