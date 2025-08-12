@@ -7,7 +7,7 @@ import ExpressLogo from '../assets/Express.png';
 import NodeLogo from '../assets/Node.png';
 import MongoDBLogo from '../assets/Mongo.png';
 import FirebaseLogo from '../assets/Firebase.png';
-import MySQLLogo from '../assets/MySQL.png';
+import MySQLLogo from '../assets/MySql.png';
 import TailwindLogo from '../assets/Tailwind.png';
 import HTMLLogo from '../assets/HTML.png';
 import CSSLogo from '../assets/CSS.png';
