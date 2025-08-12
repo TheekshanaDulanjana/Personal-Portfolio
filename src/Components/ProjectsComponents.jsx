@@ -16,7 +16,7 @@ const images = [
   { 
     title: 'Ceylon Cinnamon Legends', 
     imageUrl: cinnoman, 
-    behance: 'https://www.behance.net/dulanjana',
+    behance: 'https://www.behance.net/gallery/232382371/Ceylon-Cinnamon-Legends',
     liveSite: 'https://ceyloncinnamonlegends.com',
     technologies: [<FaWordpress />, <FaElementor />]
   },

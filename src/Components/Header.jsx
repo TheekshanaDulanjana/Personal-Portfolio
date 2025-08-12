@@ -53,14 +53,14 @@ export default function Header() {
       className={`fixed top-4 left-1/2 transform -translate-x-1/2 w-[94%] sm:w-[90%] md:w-3/4 z-50 transition-all duration-300 
       ${isVisible ? 'translate-y-0 opacity-100' : '-translate-y-full opacity-0'}`}
     >
-      <div className="px-4 py-3 rounded-2xl bg-black/40 backdrop-blur-md shadow-lg border border-white/10">
+      <div className="px-4 py-3 rounded-2xl bg-black/40 backdrop-blur-xs shadow-lg border border-white/10">
         <div className="flex justify-between items-center">
           {/* Logo / Branding */}
           <div
             className="text-white font-bold hover:text-[#59ff89] text-lg tracking-wide cursor-pointer select-none"
             onClick={() => scrollToSection('home')}
           >
-            <img src={logo} alt="Logo" className="w-8 h-8" />
+            <img src={logo} alt="Logo" className="w-12 h-8" />
           </div>
 
           {/* Desktop Navigation */}

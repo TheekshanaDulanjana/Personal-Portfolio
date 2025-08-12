@@ -32,7 +32,7 @@ export default function HeroSection() {
       {/* Buttons */}
       <div className="mt-6 flex flex-col sm:flex-row gap-4 z-10 w-full sm:w-auto justify-center">
         <a
-          href="/Theekshana_Dulanjana_CV.pdf"
+          href="/Theekshana_Dulanjana.pdf"
           download
           className="flex items-center justify-center gap-2 px-5 py-3 border border-gray-600 rounded-full cursor-pointer hover:bg-white hover:text-black transition text-sm sm:text-base"
         >
