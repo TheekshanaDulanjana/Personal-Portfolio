@@ -49,19 +49,20 @@
 
   /* Scrollbar styles */
   ::-webkit-scrollbar {
-    width: 5px;
+    width: 2px;
   }
 
   ::-webkit-scrollbar-track {
-    background: #f3f4f6;
+    background: #000000;
   }
 
   ::-webkit-scrollbar-thumb {
-    background: #999999;
+    background: #59ff89; /* Updated color */
+    box-shadow: 0 0 10px #59ff89; /* Optional glow */
   }
 
   ::-webkit-scrollbar-thumb:hover {
-    background: #16133f;
+    background: #59ff89;
     opacity: 0.8;
   }
 
