@@ -12,15 +12,19 @@
   "dependencies": {
     "@emailjs/browser": "^4.4.1",
     "@tailwindcss/vite": "^4.1.8",
+    "analytics-plugin-ga": "^0.2.0",
     "framer-motion": "^12.23.12",
     "lucide-react": "^0.511.0",
     "react": "^19.1.0",
     "react-dom": "^19.1.0",
+    "react-ga4": "^2.1.0",
+    "react-gtm-module": "^2.0.11",
     "react-icons": "^5.5.0",
     "react-intersection-observer": "^9.16.0",
     "react-router-dom": "^7.6.1",
     "react-tiny-link": "^3.6.1",
-    "tailwindcss": "^4.1.8"
+    "tailwindcss": "^4.1.8",
+    "use-analytics": "^1.1.0"
   },
   "devDependencies": {
     "@eslint/js": "^9.25.0",
