@@ -16,10 +16,11 @@ const DesignWorkComponents = () => {
       {/* Cards Section */}
       <div className="grid grid-cols-1 sm:grid-cols-2 gap-6 max-w-7xl mx-auto px-4">
         {[
-          { title: "Sample Test 01", text: "vshhvhvsvbhvsvbshvhhsbsvs sdvbsd vsjvsdbh" },
-          { title: "Sample Test 02", text: "vshhvhvsvbhvsvbshvhhsbsvs sdvbsd vsjvsdbh" },
-          { title: "Sample Test 03", text: "vshhvhvsvbhvsvbshvhhsbsvs sdvbsd vsjvsdbh" },
-          { title: "Sample Test 04", text: "vshhvhvsvbhvsvbshvhhsbsvs sdvbsd vsjvsdbh" },
+          { title: "Creative Design", text: "Crafting visually stunning and unique designs." },
+          { title: "Video Editing", text: "Editing videos to tell engaging stories." },
+          { title: "Photography", text: "Capturing memorable moments with precision." },
+          { title: "Live Broadcasting", text: "Streaming events live with professional quality." },
+
         ].map((item, index) => (
           <div
             key={index}
