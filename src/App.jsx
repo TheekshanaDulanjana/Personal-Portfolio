@@ -1,5 +1,5 @@
 import { useEffect } from "react";
-import { BrowserRouter, Routes, Route } from "react-router-dom";
+import { BrowserRouter, Routes, Route, useLocation } from "react-router-dom";
 import Header from "./Components/Header";
 import Footer from "./Components/Footer";
 import Home from "./pages/Home";
@@ -9,7 +9,50 @@ import Contact from "./pages/Contact";
 import Skills from "./pages/Skills";
 import NotFound from "./pages/NotFound";
 
+// GA4 Measurement ID from .env
+const GA_ID = import.meta.env.VITE_GA_ID;
+
+// ---- Google Analytics Tracking Hook ----
+function usePageTracking() {
+  const location = useLocation();
+
+  useEffect(() => {
+    // Load GA script only once
+    if (!window.gtag) {
+      const script1 = document.createElement("script");
+      script1.async = true;
+      script1.src = `https://www.googletagmanager.com/gtag/js?id=${GA_ID}`;
+      document.head.appendChild(script1);
+
+      const script2 = document.createElement("script");
+      script2.innerHTML = `
+        window.dataLayer = window.dataLayer || [];
+        function gtag(){dataLayer.push(arguments);}
+        gtag('js', new Date());
+        gtag('config', '${GA_ID}', { send_page_view: false });
+      `;
+      document.head.appendChild(script2);
+    }
+
+    // Send page_view event on every route change
+    if (window.gtag) {
+      window.gtag("event", "page_view", {
+        page_path: location.pathname + location.hash,
+        page_location: window.location.href,
+        page_title: document.title,
+      });
+    }
+  }, [location]);
+}
+
+// Component to trigger the hook
+function PageTracker() {
+  usePageTracking();
+  return null;
+}
+
 export default function App() {
+  // Scroll-based title & hash update
   useEffect(() => {
     const sections = ["home", "about", "projects", "skills", "contact"];
 
@@ -47,18 +90,15 @@ export default function App() {
     };
 
     window.addEventListener("scroll", onScroll, { passive: true });
-
-    // Run on mount to update title and hash if needed
-    onScroll();
-
+    onScroll(); // run once on mount
     return () => window.removeEventListener("scroll", onScroll);
   }, []);
 
   return (
     <BrowserRouter>
+      <PageTracker />
       <Header />
       <Routes>
-        {/* Main single-page route with all sections */}
         <Route
           path="/"
           element={
@@ -81,8 +121,6 @@ export default function App() {
             </>
           }
         />
-
-        {/* Catch all unmatched routes */}
         <Route path="*" element={<NotFound />} />
       </Routes>
       <Footer />
