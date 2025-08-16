@@ -1,17 +1,21 @@
 import React from 'react';
 
-import Img1 from '../assets/IEEE_KDU_SB_logo.png';
-import Img2 from '../assets/WIE_Logo.png';
-import Img3 from '../assets/KDU_EMBS_LOG.png';
-import Img4 from '../assets/kducomsoc.png';
-import Img5 from '../assets/PES1.png';
+import Ae from '../assets/Ae.png';
+import Ai from '../assets/Ai.png';
+import Li from '../assets/Li.png';
+import Pr from '../assets/Pr.png';
+import Ps from '../assets/Ps.png';
+import vMix from '../assets/vMix.png';
+
+  
 
 const logos = [
-  { src: Img1, alt: 'IEEE KDU Logo' },
-  { src: Img2, alt: 'WIE Logo' },
-  { src: Img3, alt: 'EMBS Logo' },
-  { src: Img4, alt: 'COMSOC Logo' },
-  { src: Img5, alt: 'PES Logo' },
+  { src: Ps, alt: 'Photoshop' },
+  { src: Li, alt: 'Lightroom' },
+  { src: Ai, alt: 'Illustrator' },
+  { src: Pr, alt: 'Premiere Pro' },
+  { src: Ae, alt: 'After Effects' },
+  { src: vMix, alt: 'vMix' },
 ];
 
 const SocietyBanner = () => {

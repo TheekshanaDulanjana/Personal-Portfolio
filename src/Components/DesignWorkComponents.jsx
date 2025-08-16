@@ -1,8 +1,11 @@
 import React, { useState, useEffect, useRef } from 'react';
-import ReactLogo from '../assets/React.png';
-import ReactNativeLogo from '../assets/ReactNative.png';
-import ExpressLogo from '../assets/Express.png';
-import NodeLogo from '../assets/Node.png';
+
+import Design from '../assets/Design.png';
+import Web from '../assets/Web.png';
+import VideoEdit from '../assets/VideoEdit.png';
+import Drone from '../assets/Drone.png';
+import Photography from '../assets/Photography.png';
+import Live from '../assets/Live.png';
 
 const DesignWorkComponents = () => {
   const [currentIndex, setCurrentIndex] = useState(0);
@@ -12,10 +15,36 @@ const DesignWorkComponents = () => {
   const [scrollLeft, setScrollLeft] = useState(0);
 
   const items = [
-    { image: ReactLogo, title: "Creative Design", text: "Crafting visually stunning and unique designs." },
-    { image: ReactNativeLogo, title: "Video Editing", text: "Editing videos to tell engaging stories." },
-    { image: ExpressLogo, title: "Photography", text: "Capturing memorable moments with precision." },
-    { image: NodeLogo, title: "Live Broadcasting", text: "Streaming events live with professional quality." },
+     {
+    image: Web,
+    title: "Web Site Design & Development",
+    text: "Designing and developing responsive, user-friendly, and visually engaging websites tailored to client needs."
+  },
+  {
+    image: Design,
+    title: "Creative Design",
+    text: "Delivering innovative and aesthetically refined designs that elevate brand identity."
+  },
+  {
+    image: VideoEdit,
+    title: "Video Editing",
+    text: "Producing high-quality edits that transform raw footage into compelling visual stories."
+  },
+  {
+    image: Photography,
+    title: "Photography",
+    text: "Capturing moments with precision, creativity, and professional artistry."
+  },
+  {
+    image: Drone,
+    title: "Drone Operating",
+    text: "Providing dynamic aerial photography and videography with advanced drone technology."
+  },
+  {
+    image: Live,
+    title: "Live Broadcasting",
+    text: "Delivering seamless, high-quality live streaming experiences for events of any scale."
+  }
   ];
 
   useEffect(() => {
@@ -130,7 +159,7 @@ const DesignWorkComponents = () => {
       {/* Heading Section */}
       <div className="relative w-full flex flex-col items-center justify-center text-center px-4 pt-15">
         <h1 className="text-xl md:text-3xl font-semibold text-white">
-          Designing with <span className="text-[#59ff89]">Passion</span>
+          Crafting with <span className="text-[#59ff89]">Passion</span>
         </h1>
         <p className="text-md md:text-lg text-white mt-2 max-w-3xl">
           Crafting unique visuals with creativity and precision to bring ideas to life.
@@ -179,13 +208,13 @@ const DesignWorkComponents = () => {
       </div>
 
       {/* Navigation Dots */}
-      <div className="flex justify-center -mt-15 space-x-2">
+      <div className="flex justify-center -mt-15 space-x-1">
         {items.map((_, index) => (
           <button
             key={index}
-            className={`w-3 h-3 rounded-full transition-all duration-300 ${
-              index === currentIndex 
-                ? 'bg-[#59ff89] scale-125' 
+            className={`w-2 h-2 rounded-full transition-all duration-300 ${
+              index === currentIndex
+                ? 'bg-[#59ff89] scale-125'
                 : 'bg-white/50 hover:bg-white/80'
             }`}
             onClick={() => setCurrentIndex(index)}

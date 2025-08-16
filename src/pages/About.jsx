@@ -14,7 +14,7 @@ export default function AboutMe() {
   };
 
   return (
-    <div className=" flex items-center justify-center px-4 sm:px-6 md:px-12">
+    <div className=" flex items-center pt-10 justify-center px-4 sm:px-6 md:px-12">
       <div className="w-full max-w-7xl flex flex-col md:flex-row">
         <div className="hidden lg:flex w-1/3 flex-col justify-center font-semibold font-poppins
          text-white leading-none select-none pointer-events-none">
