@@ -2,77 +2,114 @@
 
 @layer base {
   /* Font families */
-  .font-bellefair {
-    font-family: 'Bellefair', serif;
-  }
-  .font-belleza {
-    font-family: 'Belleza', sans-serif;
-  }
-  .font-bilbo {
-    font-family: 'Bilbo Swash Caps', cursive;
-  }
-  .font-poppins {
-    font-family: 'Poppins', sans-serif;
-  }
+  .font-bellefair { font-family: 'Bellefair', serif; }
+  .font-belleza { font-family: 'Belleza', sans-serif; }
+  .font-bilbo { font-family: 'Bilbo Swash Caps', cursive; }
+  .font-poppins { font-family: 'Poppins', sans-serif; }
 
   :root {
-    --GlowGreen: #39FF14;
+    --primary-green: #59ff89;
+    --dark-green: #39ff14;
+    --ash-color: #888888;
   }
 
-  /* Base body styles */
   html, body {
+    margin: 0;
+    padding: 0;
     overflow-x: hidden;
-    background-color: #000000;
+    background: #000000;
     color: #ffffff;
-    background-image: 
-      linear-gradient(to right, rgba(169, 169, 169, 0.1) 1px, transparent 1px),
-      linear-gradient(to bottom, rgba(169, 169, 169, 0.1) 1px, transparent 1px);
-    background-size: 40px 40px;
     position: relative;
     min-height: 100vh;
+    font-family: 'Poppins', sans-serif;
+    isolation: isolate; /* Ensures backgrounds don't block backdrop blur */
   }
 
-  /* Global bottom glow effect */
+  /* Gradient circles */
   body::before {
     content: '';
-    position: absolute;
-    bottom: 0;
+    position: fixed;
+    top: 0;
     left: 0;
     width: 100%;
-    height: 50%;
-    background: linear-gradient(to top, rgba(89, 255, 137, 0.3), transparent);
-    border-radius: 9999px;
-    filter: blur(60px);
-    z-index: -1;
+    height: 100%;
+    background: 
+      radial-gradient(circle 800px at 0% 30%, rgba(89, 255, 137, 0.4) 0%, rgba(89, 255, 137, 0.1) 40%, transparent 70%),
+      radial-gradient(circle 800px at 100% 70%, rgba(89, 255, 137, 0.4) 0%, rgba(89, 255, 137, 0.1) 40%, transparent 70%);
+    filter: blur(3px);
+    animation: backgroundFloat 20s ease-in-out infinite;
+    z-index: -2;
     pointer-events: none;
   }
 
-  /* Scrollbar styles */
-  ::-webkit-scrollbar {
-    width: 2px;
+  /* Rotated ash square grid */
+  body::after {
+    content: '';
+    position: fixed;
+    top: -50%;
+    left: -50%;
+    width: 200%;
+    height: 200%;
+    opacity: 0.15;
+    background-image: 
+      linear-gradient(to right, var(--ash-color) 1px, transparent 1px),
+      linear-gradient(to bottom, var(--ash-color) 1px, transparent 1px);
+    background-size: 30px 30px;
+    transform: rotate(4deg); /* Diamond pattern */
+    transform-origin: center;
+    z-index: -1; /* Above circles, still behind content */
+    pointer-events: none;
   }
 
-  ::-webkit-scrollbar-track {
-    background: #000000;
+  @keyframes backgroundFloat {
+    0%, 100% { 
+      transform: scale(1) rotate(deg); 
+      opacity: 1; 
+    }
+    50% { 
+      transform: scale(1.08) rotate(0.5deg); /* Slightly bigger for zoom */
+      opacity: 1; 
+    }
   }
 
+  /* Scrollbar styling */
+  ::-webkit-scrollbar { width: 3px; }
+  ::-webkit-scrollbar-track { background: #000000; }
   ::-webkit-scrollbar-thumb {
-    background: #59ff89; /* Updated color */
-    box-shadow: 0 0 10px #59ff89; /* Optional glow */
+    background: var(--primary-green);
+    box-shadow: 0 0 10px var(--primary-green);
+    border-radius: 3px;
   }
-
-  ::-webkit-scrollbar-thumb:hover {
-    background: #59ff89;
-    opacity: 0.8;
-  }
+  ::-webkit-scrollbar-thumb:hover { background: var(--dark-green); }
 
   .glow-green {
-    color: var(--GlowGreen);
-    text-shadow: 0 0 5px var(--GlowGreen), 0 0 10px var(--GlowGreen), 0 0 20px var(--GlowGreen);
+    color: var(--primary-green);
+    text-shadow: 0 0 5px var(--primary-green), 0 0 10px var(--primary-green), 0 0 20px var(--primary-green);
+  }
+  .border-glow {
+    border: 1px solid var(--primary-green);
+    box-shadow: 0 0 10px var(--primary-green);
   }
 
-  .border-glow {
-    border: 1px solid var(--GlowGreen);
-    box-shadow: 0 0 10px var(--GlowGreen);
+  .content-wrapper {
+    position: relative;
+    z-index: 5;
+  }
+
+  /* Mobile responsiveness for gradient circles */
+  @media (max-width: 768px) {
+    body::before {
+      background: 
+        radial-gradient(circle 400px at 0% 30%, rgba(89, 255, 137, 0.4) 0%, rgba(89, 255, 137, 0.1) 40%, transparent 70%),
+        radial-gradient(circle 400px at 100% 70%, rgba(89, 255, 137, 0.4) 0%, rgba(89, 255, 137, 0.1) 40%, transparent 70%);
+    }
+  }
+
+  @media (max-width: 480px) {
+    body::before {
+      background: 
+        radial-gradient(circle 500px at 0% 30%, rgba(89, 255, 137, 0.4) 0%, rgba(89, 255, 137, 0.1) 40%, transparent 70%),
+        radial-gradient(circle 400px at 110% 70%, rgba(89, 255, 137, 0.4) 0%, rgba(89, 255, 137, 0.1) 40%, transparent 70%);
+    }
   }
 }

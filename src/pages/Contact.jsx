@@ -52,7 +52,7 @@ export default function Contact() {
 
   return (
     <>
-      <div className="min-h-screen -mb-30 text-white flex items-center justify-center px-4 sm:px-6 md:px-12 py-12 font-poppins">
+      <div className=" -mb-30 text-white flex items-center justify-center px-4 sm:px-6 md:px-12 py-12 font-poppins">
         <div className="max-w-7xl w-full grid grid-cols-1 md:grid-cols-2 gap-12 md:gap-16">
           {/* Left Side */}
           <div className="flex flex-col justify-between h-full">

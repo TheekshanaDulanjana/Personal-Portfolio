@@ -24,7 +24,7 @@ export default function HeroSection() {
       </h1>
 
       {/* Subtext */}
-      <p className="text-gray-400 text-center mt-4 max-w-lg sm:max-w-xl lg:max-w-2xl z-10 text-base sm:text-lg">
+      <p className="text-gray-400 text-center  max-w-lg sm:max-w-xl lg:max-w-2xl z-10 text-base sm:text-lg">
         Blending Code and Creativity <br />
         Crafting intuitive designs and impactful digital experiences.
       </p>

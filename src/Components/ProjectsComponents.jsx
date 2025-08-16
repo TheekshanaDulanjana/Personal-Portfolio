@@ -164,7 +164,7 @@ export default function ProjectsComponents({ searchTerm = '' }) {
   const showLess = () => setVisibleCount(INITIAL_COUNT);
 
   return (
-    <div className="w-full min-h-screen flex flex-col items-center px-3 sm:px-4 pt-4">
+    <div className="w-full  flex flex-col items-center px-3 sm:px-4">
       <div
         className="
           grid 

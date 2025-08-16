@@ -1,5 +1,6 @@
 import React from 'react';
 import DesignWorkComponents from '../Components/DesignWorkComponents';
+import DesignToolsComponents from '../Components/DesignToolsComponents';
 
 import ReactLogo from '../assets/React.png';
 import ReactNativeLogo from '../assets/ReactNative.png';
@@ -79,6 +80,7 @@ const Skills = () => {
         </div>
       </div>
       <DesignWorkComponents />
+      <DesignToolsComponents />
     </div>
   );
 };
