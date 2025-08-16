@@ -1,7 +1,7 @@
 import React from 'react';
 
 import Ae from '../assets/Ae.png';
-import Ai from '../assets/Ai.png';
+import Ai from '../assets/AI.png';
 import Li from '../assets/Li.png';
 import Pr from '../assets/Pr.png';
 import Ps from '../assets/Ps.png';
