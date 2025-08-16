@@ -18,7 +18,7 @@ const logos = [
   { src: vMix, alt: 'vMix' },
 ];
 
-const SocietyBanner = () => {
+const DesignToolsComponents = () => {
   const duplicatedLogos = [...logos, ...logos];
 
   return (
@@ -71,4 +71,4 @@ const SocietyBanner = () => {
   );
 };
 
-export default SocietyBanner;
+export default DesignToolsComponents;
