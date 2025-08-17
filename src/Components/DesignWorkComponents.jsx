@@ -178,7 +178,7 @@ const DesignWorkComponents = () => {
         onTouchStart={handleTouchStart}
         onTouchMove={handleTouchMove}
       >
-<div className="relative flex items-center justify-center -mt-15">
+<div className="relative flex items-center justify-center sm:-mt-15">
   {items.map((item, index) => (
     <div
       key={index}
@@ -208,7 +208,7 @@ const DesignWorkComponents = () => {
       </div>
 
       {/* Navigation Dots */}
-      <div className="flex justify-center -mt-15 space-x-1">
+      <div className="flex justify-center sm:-mt-15 space-x-1">
         {items.map((_, index) => (
           <button
             key={index}
