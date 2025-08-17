@@ -12,97 +12,59 @@ const DesignWorkComponents = () => {
   const containerRef = useRef(null);
   const [isDragging, setIsDragging] = useState(false);
   const [startX, setStartX] = useState(0);
-  const [scrollLeft, setScrollLeft] = useState(0);
 
   const items = [
-     {
-    image: Web,
-    title: "Web Site Design & Development",
-    text: "Designing and developing responsive, user-friendly, and visually engaging websites tailored to client needs."
-  },
-  {
-    image: Design,
-    title: "Creative Design",
-    text: "Delivering innovative and aesthetically refined designs that elevate brand identity."
-  },
-  {
-    image: VideoEdit,
-    title: "Video Editing",
-    text: "Producing high-quality edits that transform raw footage into compelling visual stories."
-  },
-  {
-    image: Photography,
-    title: "Photography",
-    text: "Capturing moments with precision, creativity, and professional artistry."
-  },
-  {
-    image: Drone,
-    title: "Drone Operating",
-    text: "Providing dynamic aerial photography and videography with advanced drone technology."
-  },
-  {
-    image: Live,
-    title: "Live Broadcasting",
-    text: "Delivering seamless, high-quality live streaming experiences for events of any scale."
-  }
+    {
+      image: Web,
+      title: "Web Site Design & Development",
+      text: "Designing and developing responsive, user-friendly, and visually engaging websites tailored to client needs."
+    },
+    {
+      image: Design,
+      title: "Creative Design",
+      text: "Delivering innovative and aesthetically refined designs that elevate brand identity."
+    },
+    {
+      image: VideoEdit,
+      title: "Video Editing",
+      text: "Producing high-quality edits that transform raw footage into compelling visual stories."
+    },
+    {
+      image: Photography,
+      title: "Photography",
+      text: "Capturing moments with precision, creativity, and professional artistry."
+    },
+    {
+      image: Drone,
+      title: "Drone Operating",
+      text: "Providing dynamic aerial photography and videography with advanced drone technology."
+    },
+    {
+      image: Live,
+      title: "Live Broadcasting",
+      text: "Delivering seamless, high-quality live streaming experiences for events of any scale."
+    }
   ];
 
   useEffect(() => {
     const container = containerRef.current;
-    if (!container) {
-      return;
-    }
+    if (!container) return;
 
     const handleWheel = (e) => {
       e.preventDefault();
       const delta = e.deltaY;
-      
       if (delta > 0) {
-        setCurrentIndex(prev => (prev + 1) % items.length);
+        setCurrentIndex((prev) => (prev + 1) % items.length);
       } else if (delta < 0) {
-        setCurrentIndex(prev => prev === 0 ? items.length - 1 : prev - 1);
+        setCurrentIndex((prev) => (prev === 0 ? items.length - 1 : prev - 1));
       }
     };
 
     container.addEventListener('wheel', handleWheel, { passive: false });
-    
     return () => {
       container.removeEventListener('wheel', handleWheel);
     };
   }, [items.length]);
-
-  const handleMouseDown = (e) => {
-    setIsDragging(true);
-    setStartX(e.pageX - containerRef.current.offsetLeft);
-    setScrollLeft(containerRef.current.scrollLeft);
-  };
-
-  const handleMouseLeave = () => {
-    setIsDragging(false);
-  };
-
-  const handleMouseUp = () => {
-    setIsDragging(false);
-  };
-
-  const handleMouseMove = (e) => {
-    if (!isDragging) {
-      return;
-    }
-    e.preventDefault();
-    const x = e.pageX - containerRef.current.offsetLeft;
-    const walk = (x - startX) * 2;
-    
-    if (Math.abs(walk) > 50) {
-      if (walk > 0) {
-        setCurrentIndex(prev => prev === 0 ? items.length - 1 : prev - 1);
-        setIsDragging(false);
-      } else if (walk < 0) {
-        setCurrentIndex(prev => (prev + 1) % items.length);
-        setIsDragging(false);
-      }
-    }
-  };
 
   const handleTouchStart = (e) => {
     setStartX(e.touches[0].clientX);
@@ -111,12 +73,12 @@ const DesignWorkComponents = () => {
   const handleTouchMove = (e) => {
     const currentX = e.touches[0].clientX;
     const diff = startX - currentX;
-    
+
     if (Math.abs(diff) > 50) {
       if (diff > 0) {
-        setCurrentIndex(prev => (prev + 1) % items.length);
+        setCurrentIndex((prev) => (prev + 1) % items.length);
       } else if (diff < 0) {
-        setCurrentIndex(prev => prev === 0 ? items.length - 1 : prev - 1);
+        setCurrentIndex((prev) => (prev === 0 ? items.length - 1 : prev - 1));
       }
     }
   };
@@ -124,14 +86,16 @@ const DesignWorkComponents = () => {
   const getItemStyle = (index) => {
     const distance = Math.abs(index - currentIndex);
     const isCenter = index === currentIndex;
-    
-    // Calculate position with proper gaps
-    const baseOffset = (index - currentIndex) * 560; // 300px card width + 20px gap
-    
+
+    // Responsive gap (smaller for mobile)
+    const cardWidth = window.innerWidth < 640 ? 320 : 480;
+    const gap = window.innerWidth < 640 ? 40 : 80;
+    const baseOffset = (index - currentIndex) * (cardWidth + gap);
+
     let scale = 1;
     let opacity = 1;
     let zIndex = 10;
-    
+
     if (isCenter) {
       scale = 1.1;
       opacity = 1;
@@ -145,7 +109,7 @@ const DesignWorkComponents = () => {
       opacity = 0.6;
       zIndex = 10;
     }
-    
+
     return {
       transform: `translateX(${baseOffset}px) scale(${scale})`,
       opacity,
@@ -155,7 +119,7 @@ const DesignWorkComponents = () => {
   };
 
   return (
-    <div className="w-full py-10 ">
+    <div className="w-full py-10">
       {/* Heading Section */}
       <div className="relative w-full flex flex-col items-center justify-center text-center px-4 pt-15">
         <h1 className="text-xl md:text-3xl font-semibold text-white">
@@ -166,49 +130,43 @@ const DesignWorkComponents = () => {
         </p>
       </div>
 
-      {/* Horizontal Scrolling Cards Container */}
-      <div 
+      {/* Cards Container */}
+      <div
         ref={containerRef}
-        className="relative w-screen flex justify-center items-center h-80 overflow-hidden cursor-grab select-none"
-        style={{ cursor: isDragging ? 'grabbing' : 'grab' }}
-        onMouseDown={handleMouseDown}
-        onMouseLeave={handleMouseLeave}
-        onMouseUp={handleMouseUp}
-        onMouseMove={handleMouseMove}
+        className="relative w-full flex justify-center items-center h-80 overflow-hidden select-none"
         onTouchStart={handleTouchStart}
         onTouchMove={handleTouchMove}
       >
-<div className="relative flex items-center justify-center sm:-mt-15">
-  {items.map((item, index) => (
-    <div
-      key={index}
-      className="absolute md:w-lg w-80 border border-white p-6 rounded-2xl text-left bg-black/50 backdrop-blur-sm flex items-start gap-4"
-      style={getItemStyle(index)}
-    >
-      {/* Image on the left */}
-      <img
-        src={item.image}
-        alt={item.image}
-        className="w-20 h-20 object-cover rounded-lg"
-      />
+        <div className="relative flex items-center justify-center w-full">
+          {items.map((item, index) => (
+            <div
+              key={index}
+              className="absolute left-1/2 -translate-x-1/2 md:w-[28rem] w-75 sm:w-80 border border-white p-6 rounded-2xl text-left bg-black/50 backdrop-blur-sm flex items-start gap-4"
+              style={getItemStyle(index)}
+            >
+              {/* Image */}
+              <img
+                src={item.image}
+                alt={item.title}
+                className="w-20 h-20 object-cover rounded-lg"
+              />
 
-      {/* Title + Text on the right */}
-      <div>
-        <h2 className="text-lg font-semibold text-white mb-1">
-          {item.title}
-        </h2>
-        <p className="text-sm text-white leading-relaxed">
-          {item.text}
-        </p>
-      </div>
-    </div>
-  ))}
-</div>
-
+              {/* Text */}
+              <div>
+                <h2 className="text-lg font-semibold text-white mb-1">
+                  {item.title}
+                </h2>
+                <p className="text-sm text-white leading-relaxed">
+                  {item.text}
+                </p>
+              </div>
+            </div>
+          ))}
+        </div>
       </div>
 
       {/* Navigation Dots */}
-      <div className="flex justify-center sm:-mt-15 space-x-1">
+      <div className="flex justify-center mt-6 space-x-1">
         {items.map((_, index) => (
           <button
             key={index}
