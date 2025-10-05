@@ -5,24 +5,18 @@ import { motion, AnimatePresence } from "framer-motion";
 
 export default function AboutMe() {
   const [activeSection, setActiveSection] = useState("about");
-  const [isAnimated, setIsAnimated] = useState(false); // Track if animation has played
 
   const handleToggle = (section) => {
     setActiveSection(section);
   };
 
   return (
-    <div
-      className="flex items-center pt-10 justify-center px-4 sm:px-6 md:px-12"
-      onMouseEnter={() => {
-        if (!isAnimated) setIsAnimated(true); // Start animation once on first cursor enter
-      }}
-    >
+    <div className="flex items-center pt-10 justify-center px-4 sm:px-6 md:px-12">
       <div className="w-full max-w-7xl flex flex-col md:flex-row">
         {/* Background large text */}
         <motion.div
           initial={{ x: -80, opacity: 0 }}
-          animate={isAnimated ? { x: 0, opacity: 1 } : {}} // animate only after cursor enters
+          animate={{ x: 0, opacity: 1 }} 
           transition={{ duration: 1 }}
           className="hidden lg:flex w-1/3 flex-col justify-center font-semibold font-poppins
          text-white leading-none select-none pointer-events-none"
@@ -31,7 +25,7 @@ export default function AboutMe() {
             <motion.p
               key={i}
               initial={{ opacity: 0 }}
-              animate={isAnimated ? { opacity: parseFloat(op) / 100 } : {}} // animate after hover
+              animate={{ opacity: parseFloat(op) / 100 }} 
               transition={{ delay: i * 0.05 }}
               className="text-4xl md:text-5xl lg:text-6xl"
             >
@@ -43,7 +37,7 @@ export default function AboutMe() {
         {/* Main content box */}
         <motion.div
           initial={{ scale: 0.95, opacity: 0 }}
-          animate={isAnimated ? { scale: 1, opacity: 1 } : {}} // trigger only once
+          animate={{ scale: 1, opacity: 1 }}
           transition={{ duration: 0.8 }}
           className="w-full flex justify-center"
         >
@@ -86,7 +80,7 @@ export default function AboutMe() {
                 <motion.div
                   key="about"
                   initial={{ opacity: 0, x: -50 }}
-                  animate={isAnimated ? { opacity: 1, x: 0 } : {}} // play once
+                  animate={{ opacity: 1, x: 0 }} 
                   exit={{ opacity: 0, x: 50 }}
                   transition={{ duration: 0.6 }}
                   className="flex w-full flex-col md:flex-row"
@@ -136,7 +130,7 @@ export default function AboutMe() {
                   {/* RIGHT IMAGE */}
                   <motion.div
                     initial={{ y: 50, opacity: 0 }}
-                    animate={isAnimated ? { y: 0, opacity: 1 } : {}} // only first time
+                    animate={{ y: 0, opacity: 1 }} 
                     transition={{ duration: 0.8, delay: 0.3 }}
                     className="flex items-end sm:-ml-20 ml-5 justify-center w-full md:w-1/2 px-6 md:px-10 z-10"
                   >
@@ -153,7 +147,7 @@ export default function AboutMe() {
                 <motion.div
                   key="education"
                   initial={{ opacity: 0, x: 50 }}
-                  animate={isAnimated ? { opacity: 1, x: 0 } : {}} // trigger once
+                  animate={{ opacity: 1, x: 0 }} 
                   exit={{ opacity: 0, x: -50 }}
                   transition={{ duration: 0.6 }}
                   className="w-full max-w-5xl mx-auto px-6"
