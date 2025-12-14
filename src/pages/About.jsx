@@ -93,34 +93,27 @@ export default function AboutMe() {
 
                     {/* Paragraph for md and below */}
                     <p className="block lg:hidden text-xs sm:text-sm md:text-sm md:leading-5 font-light font-poppins text-gray-400 text-justify">
-                      I am Theekshana Dulanjana, a third-year BSc (Hons)
-                      Information Technology student at General Sir John
-                      Kotelawala Defence University, passionate about emerging
-                      technologies and creative design. Skilled in web
-                      development, UI/UX, graphic design, and photography, I
-                      bring experience in camera operation and assisting on
-                      shoots. Proficient in Figma, Adobe Creative Suite, and
-                      Canva, I combine technical expertise with creativity to
-                      deliver impactful, user-centered digital solutions.
+                I am a Final Year BSc (Hons) Information Technology undergraduate passionate about 
+                creating meaningful digital experiences through UX/UI engineering, frontend development,
+                 and modern web design. I blend technical expertise with creativity to craft intuitive, 
+                 user-focused interfaces that are functional and visually engaging. Alongside my technical
+                  skills, I am a creative designer and event photographer, bringing a strong visual perspective 
+                  to every project. As an enthusiastic volunteer, I explore emerging technologies,
+                   embrace continuous learning, and welcome opportunities for impactful collaborations
+                    and purposeful digital solutions
                     </p>
 
                     {/* Paragraph for lg and above */}
                     <p className="hidden lg:block text-xs md:text-sm font-light font-poppins text-gray-300 leading-5 mb-10 text-justify">
-                      I am Theekshana Dulanjana, a driven third-year BSc (Hons)
-                      Information Technology undergraduate at General Sir John
-                      Kotelawala Defence University. With a strong foundation in
-                      emerging technologies and a keen eye for detail, I
-                      specialize in crafting intuitive, user-centered digital
-                      experiences through web development and UI/UX design.
-                      Alongside my technical expertise, I bring a creative edge
-                      as a skilled graphic designer and photographer, experienced
-                      in camera operation and assisting on professional shoots.
-                      Proficient with industry-standard tools such as Figma,
-                      Adobe Photoshop, Illustrator, Premiere Pro, and Canva, I am
-                      passionate about blending technology and creativity to
-                      deliver compelling visual storytelling and responsive
-                      designs. My work is guided by curiosity, aesthetics, and a
-                      commitment to impactful, purposeful solutions.
+                    I am a Final Year BSc (Hons) Information Technology undergraduate driven by a passion for building meaningful
+                    digital experiences through UX/UI engineering, frontend development, and modern web design. 
+                    I enjoy blending technical knowledge with creativity to design intuitive, user-focused
+                      interfaces that are both functional and visually engaging. Alongside my technical journey, 
+                      I am a creative designer and event photographer, bringing a strong visual perspective to
+                      every project I undertake. As an enthusiastic volunteer, I actively explore emerging
+                        technologies and embrace continuous learning to grow both personally and professionally.
+                        I am always open to new opportunities, collaborations, and impactful projects that
+                          challenge me to create purposeful digital solutions.
                     </p>
 
                     {/* Glow effect */}
