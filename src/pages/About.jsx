@@ -19,7 +19,7 @@ export default function AboutMe() {
           animate={{ x: 0, opacity: 1 }} 
           transition={{ duration: 1 }}
           className="hidden lg:flex w-1/3 flex-col justify-center font-semibold font-poppins
-         text-white leading-none select-none pointer-events-none"
+          text-white leading-none select-none pointer-events-none"
         >
           {["27", "24", "21", "75", "15", "12", "9", "6", "6"].map((op, i) => (
             <motion.p
@@ -72,11 +72,21 @@ export default function AboutMe() {
               >
                 Education
               </button>
+              <button
+                onClick={() => handleToggle("experience")}
+                className={`text-sm sm:text-base font-poppins transition-colors duration-300 cursor-pointer ${
+                  activeSection === "experience"
+                    ? "text-[#59ff89]"
+                    : "text-white hover:text-[#59ff89]"
+                }`}
+              >
+                Experience
+              </button>
             </div>
 
             {/* Content switching */}
             <AnimatePresence mode="wait">
-              {activeSection === "about" ? (
+              {activeSection === "about" && (
                 <motion.div
                   key="about"
                   initial={{ opacity: 0, x: -50 }}
@@ -91,32 +101,26 @@ export default function AboutMe() {
                       Who, <span className="text-[#59ff89]">I am</span>
                     </h1>
 
-                    {/* Paragraph for md and below */}
                     <p className="block lg:hidden text-xs sm:text-sm md:text-sm md:leading-5 font-light font-poppins text-gray-400 text-justify">
-                I am a Final Year BSc (Hons) Information Technology undergraduate passionate about 
-                creating meaningful digital experiences through UX/UI engineering, frontend development,
-                 and modern web design. I blend technical expertise with creativity to craft intuitive, 
-                 user-focused interfaces that are functional and visually engaging. Alongside my technical
-                  skills, I am a creative designer and event photographer, bringing a strong visual perspective 
-                  to every project. As an enthusiastic volunteer, I explore emerging technologies,
-                   embrace continuous learning, and welcome opportunities for impactful collaborations
-                    and purposeful digital solutions
+                      I am a Final Year IT undergraduate and an Intern UX/UI Engineer passionate about crafting
+                      seamless, user-centric digital experiences. My expertise lies in bridging the gap between
+                      design and development, specializing in the end-to-end process from user research to high-fidelity
+                      prototyping in Figma. Complementing my design skills, I possess strong frontend capabilities using React.js,
+                      Astro, and Tailwind CSS to transform static designs into high-performance, responsive web interfaces. 
+                      By integrating modern design systems with efficient coding, I focus on delivering digital solutions that
+                      are both visually engaging and technically robust.
                     </p>
 
-                    {/* Paragraph for lg and above */}
                     <p className="hidden lg:block text-xs md:text-sm font-light font-poppins text-gray-300 leading-5 mb-10 text-justify">
-                    I am a Final Year BSc (Hons) Information Technology undergraduate driven by a passion for building meaningful
-                    digital experiences through UX/UI engineering, frontend development, and modern web design. 
-                    I enjoy blending technical knowledge with creativity to design intuitive, user-focused
-                      interfaces that are both functional and visually engaging. Alongside my technical journey, 
-                      I am a creative designer and event photographer, bringing a strong visual perspective to
-                      every project I undertake. As an enthusiastic volunteer, I actively explore emerging
-                        technologies and embrace continuous learning to grow both personally and professionally.
-                        I am always open to new opportunities, collaborations, and impactful projects that
-                          challenge me to create purposeful digital solutions.
+                      I am a Final Year IT undergraduate and an Intern UX/UI Engineer passionate about crafting
+                      seamless, user-centric digital experiences. My expertise lies in bridging the gap between
+                      design and development, specializing in the end-to-end process from user research to high-fidelity
+                      prototyping in Figma. Complementing my design skills, I possess strong frontend capabilities using React.js,
+                      Astro, and Tailwind CSS to transform static designs into high-performance, responsive web interfaces. 
+                      By integrating modern design systems with efficient coding, I focus on delivering digital solutions that
+                      are both visually engaging and technically robust.
                     </p>
 
-                    {/* Glow effect */}
                     <div className="absolute bottom-0 left-0 w-full h-1/2 bg-gradient-to-t from-[#59ff89]/40 to-transparent rounded-b-xl blur-3xl z-0" />
                   </div>
 
@@ -136,7 +140,9 @@ export default function AboutMe() {
                     />
                   </motion.div>
                 </motion.div>
-              ) : (
+              )}
+
+              {activeSection === "education" && (
                 <motion.div
                   key="education"
                   initial={{ opacity: 0, x: 50 }}
@@ -145,14 +151,11 @@ export default function AboutMe() {
                   transition={{ duration: 0.6 }}
                   className="w-full max-w-5xl mx-auto px-6"
                 >
-                  {/* Title */}
                   <h1 className="text-3xl sm:text-4xl font-semibold font-poppins text-white mt-5 mb-10">
                     Pathway to <span className="text-[#59ff89]"> Knowledge</span>
                   </h1>
 
-                  {/* Boxes container */}
                   <div className="flex flex-col sm:flex-row justify-center items-stretch gap-6">
-                    {/* University Education */}
                     <motion.div
                       whileHover={{ scale: 1.05 }}
                       transition={{ type: "spring", stiffness: 200 }}
@@ -168,7 +171,6 @@ export default function AboutMe() {
                       </p>
                     </motion.div>
 
-                    {/* Secondary Education */}
                     <motion.div
                       whileHover={{ scale: 1.05 }}
                       transition={{ type: "spring", stiffness: 200 }}
@@ -185,7 +187,39 @@ export default function AboutMe() {
                     </motion.div>
                   </div>
 
-                  {/* Glow effect */}
+                  <div className="absolute bottom-0 left-0 w-full h-1/2 bg-gradient-to-t from-[#59ff89]/40 to-transparent rounded-b-xl blur-3xl z-0" />
+                </motion.div>
+              )}
+
+              {activeSection === "experience" && (
+                <motion.div
+                  key="experience"
+                  initial={{ opacity: 0, x: 50 }}
+                  animate={{ opacity: 1, x: 0 }} 
+                  exit={{ opacity: 0, x: -50 }}
+                  transition={{ duration: 0.6 }}
+                  className="w-full max-w-5xl mx-auto px-6"
+                >
+                  <h1 className="text-3xl sm:text-4xl font-semibold font-poppins text-white mt-5 mb-10 text-left">
+                    Professional <span className="text-[#59ff89]"> Journey</span>
+                  </h1>
+
+                  <div className="flex flex-col sm:flex-row justify-start items-start gap-6">
+                    <motion.div
+                      whileHover={{ scale: 1.05 }}
+                      transition={{ type: "spring", stiffness: 200 }}
+                      className="w-full sm:w-1/2 bg-black backdrop-blur-3xl p-4 shadow-lg space-y-2 border border-white/60 rounded-xl flex flex-col justify-center"
+                    >
+                      <h2 className="text-base sm:text-lg md:text-xl font-semibold font-poppins text-white">
+                        Glamer Media
+                      </h2>
+                      <p className="text-xs sm:text-sm md:text-base font-light font-poppins text-gray-300 leading-6">
+                        Intern UX/UI Engineer <br />
+                        September 2025 - Present
+                      </p>
+                    </motion.div>
+                  </div>
+
                   <div className="absolute bottom-0 left-0 w-full h-1/2 bg-gradient-to-t from-[#59ff89]/40 to-transparent rounded-b-xl blur-3xl z-0" />
                 </motion.div>
               )}
