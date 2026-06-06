@@ -8,11 +8,19 @@ import ieeecskdu from '../assets/ieeecskdu.png';
 import uniboard from '../assets/uniboard.png';
 import myportfolio from '../assets/myportfolio.png';
 import cinnoman from '../assets/cinnoman.png';
+import ideon from '../assets/ideon.png';
 
 import { FaBehance, FaExternalLinkAlt, FaGithub, FaReact, FaNodeJs, FaWordpress, FaElementor, FaGoogle,  } from 'react-icons/fa';
-import { SiExpress, SiFigma, SiFirebase, SiGoogleanalytics, SiMongodb, SiRedux, SiTailwindcss, SiVercel } from 'react-icons/si';
+import { SiAdobephotoshop, SiExpress, SiFigma, SiFirebase, SiGoogleanalytics, SiMongodb, SiRedux, SiTailwindcss, SiVercel } from 'react-icons/si';
 
 const images = [
+    { 
+    title: 'Ideon | Switch Your Ideas On', 
+    imageUrl: ideon, 
+    behance: 'https://www.behance.net/gallery/246126661/Ideon-Case-Study',
+   
+    technologies: [<SiFigma />, <SiAdobephotoshop />]
+  },
   { 
     title: 'Ceylon Cinnamon Legends', 
     imageUrl: cinnoman, 
